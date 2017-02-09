@@ -1,0 +1,6 @@
+﻿
+Enable-Migrations -ContextProjectName ZenithSocietyLib -ContextTypeName ApplicationDbContext -StartupProjectName ZenithSocietyLib -MigrationsDirectory Migrations\Events
+
+add-migration -StartupProjectName ZenithSocietyLib -ConfigurationTypeName ZenithSociety.Migrations.Events.Configuration "FirstMigration"
+
+update-database -ConfigurationTypeName ZenithSociety.Migrations.Events.Configuration

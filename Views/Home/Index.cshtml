@@ -1,0 +1,47 @@
+﻿@using System.Globalization
+@using ZenithSocietyLib.Models
+@model IEnumerable<IEnumerable<Events>>
+
+@{
+    ViewBag.Title = "Zenith Society";
+}
+
+<h2 style="text-align:center">Zenith Society Week Schedule</h2>
+
+@if (Model == null)
+{
+    <h3 style="text-align:center">No Data</h3>
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            <table class='table table-condensed' style="border:medium;">
+
+                @foreach (var day in Model)
+                {
+                    <tr class="col-sm-12" style="background-color:aqua">
+                        <th class="col-sm-push-10" style="text-align:center">
+                            @day.FirstOrDefault().StartDate.ToString("dddd MMMM dd, yyyy",
+                           CultureInfo.CreateSpecificCulture("en-US"))
+                        </th>
+                        <th class="col-sm-push-1"></th>
+                    </tr>
+                    foreach (var item in day)
+                    {
+                        if (item.isActive)
+                        {
+                            <tr class="col-xs-12">
+                                <td class="col-xs-4" style="text-align:center">@item.StartTime - @item.EndTime</td>
+                                <td class="col-xs-8" style="text-align:left" >@item.Activity.ActivityDescription</td>
+                            </tr>
+                        }
+
+                    }
+                }
+
+            </table>
+        </div>
+    </div>
+}
+

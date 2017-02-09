@@ -1,0 +1,27 @@
+﻿@model ZenithSocietyLib.Models.Activities
+
+@{
+    ViewBag.Title = "Details Activities";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Activities Details</h2>
+
+<div>
+    <h4>Activities</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ActivityDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActivityDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ActivityId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
